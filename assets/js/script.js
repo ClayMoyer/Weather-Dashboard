@@ -30,7 +30,6 @@ function weatherCurrentCity(city){
 
 function weatherFiveDayForecast(city) {
     fiveDayForecast.innerHTML = "";
-
     fetch("http://api.openweathermap.org/geo/1.0/direct?q=" + city + "&appid=" + apiKey)
     .then(response => response.json())
     .then(data => {
@@ -51,15 +50,15 @@ function weatherFiveDayForecast(city) {
                 let cardIcon = document.createElement("img")
                 cardIcon.setAttribute("src", "http://openweathermap.org/img/w/" + currentWeather.weather[0].icon + ".png")
                 cardBody.append(cardIcon)
-                let cardTemperature = document.createElement("h2")
+                let cardTemperature = document.createElement("p")
                 cardTemperature.classList.add("card-text")
                 cardTemperature.innerText = "Temp: " + currentWeather.main.temp + " °F"
                 cardBody.append(cardTemperature)
-                let cardWind = document.createElement("h2")
+                let cardWind = document.createElement("p")
                 cardWind.classList.add("card-text")
                 cardWind.innerText = "Wind: " + currentWeather.wind.speed + " MPH"
                 cardBody.append(cardWind)
-                let cardHumid = document.createElement("h2")
+                let cardHumid = document.createElement("p")
                 cardHumid.classList.add("card-text")
                 cardHumid.innerText = "Humidity: " + currentWeather.main.humidity + " %"
                 cardBody.append(cardHumid)
