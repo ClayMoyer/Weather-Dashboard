@@ -78,7 +78,11 @@ function saveSearchHistory(city) {
 }
 
 function searchHistory() {
-
+    searchHistoryDisplayed.innerHTML = "<h1>History</h1>"
+    JSON.parse(localStorage.getItem("currentCity")) ? searchHistoryArr = JSON.parse(localStorage.getItem("currentCity")) : searchHistoryArr = []
+    searchHistoryArr.forEach(city => {
+        historyBtn(city)
+    })
 }
 
 function historyBtn() {
