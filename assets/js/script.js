@@ -10,7 +10,7 @@ let searchHistoryDisplayed = document.querySelector("#searchHistoryDisplayed")
 let searchHistoryArr = []
 
 function weatherCurrentCity(city){
-    fetch("http://api.openweathermap.org/geo/1.0/direct?q=" + city + "&appid=" + apiKey)
+    fetch("https://api.openweathermap.org/geo/1.0/direct?q=" + city + "&appid=" + apiKey)
     .then(response => response.json())
     .then(data => {
         fetch("https://api.openweathermap.org/data/2.5/weather?lat=" + data[0].lat + "&lon=" + data[0].lon + "&units=imperial&appid=" + apiKey)
@@ -22,7 +22,7 @@ function weatherCurrentCity(city){
             temperature.textContent = "Temp: " + data.main.temp + " °F"
             wind.textContent = "Wind: " + data.wind.speed + " MPH"
             humidity.textContent = "Humidity: " + data.main.humidity + " %"
-            weatherIcon.scr = "http://openweathermap.org/img/w/" + data.weather[0].icon + ".png"
+            weatherIcon.scr = "https://openweathermap.org/img/w/" + data.weather[0].icon + ".png"
             currentCity.append(weatherIcon)
         })
     })
@@ -30,10 +30,10 @@ function weatherCurrentCity(city){
 
 function weatherFiveDayForecast(city) {
     fiveDayForecast.innerHTML = "";
-    fetch("http://api.openweathermap.org/geo/1.0/direct?q=" + city + "&appid=" + apiKey)
+    fetch("https://api.openweathermap.org/geo/1.0/direct?q=" + city + "&appid=" + apiKey)
     .then(response => response.json())
     .then(data => {
-        fetch("http://api.openweathermap.org/data/2.5/forecast?lat=" + data[0].lat + "&units=imperial&lon=" + data[0].lon + "&appid=" + apiKey)
+        fetch("https://api.openweathermap.org/data/2.5/forecast?lat=" + data[0].lat + "&units=imperial&lon=" + data[0].lon + "&appid=" + apiKey)
         .then(response => response.json())
         .then(data => {
             for(let i=2; i < data.list.length; i += 8){
@@ -48,7 +48,7 @@ function weatherFiveDayForecast(city) {
                 cardTitle.innerText = dayjs.unix(currentWeather.dt).format("MM/DD/YYYY")
                 cardBody.append(cardTitle)
                 let cardIcon = document.createElement("img")
-                cardIcon.setAttribute("src", "http://openweathermap.org/img/w/" + currentWeather.weather[0].icon + ".png")
+                cardIcon.setAttribute("src", "https://openweathermap.org/img/w/" + currentWeather.weather[0].icon + ".png")
                 cardBody.append(cardIcon)
                 let cardTemperature = document.createElement("p")
                 cardTemperature.classList.add("card-text")
