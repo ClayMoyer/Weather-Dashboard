@@ -85,8 +85,16 @@ function searchHistory() {
     })
 }
 
-function historyBtn() {
-
+function historyBtn(city) {
+    let historyBtnItem = document.createElement("button")
+    historyBtnItem.classList.add("btn", "btn-secondary", "w-25", "col-2", "mb-2")
+    historyBtnItem.textContent = city
+    historyBtnItem.addEventListener("click", () => {
+        weatherCurrentCity(historyBtnItem.textContent)
+        weatherFiveDayForecast(historyBtnItem.textContent)
+    })
+    searchHistoryDisplayed.append(historyBtnItem)
+    searchHistoryDisplayed.append(document.createElement("br"))
 }
 
 function searchCity() {
