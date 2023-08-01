@@ -7,5 +7,28 @@ let humidity = document.querySelector("#humidity")
 let inputSearch = document.querySelector("#inputSearch")
 let fiveDayForecast = document.querySelector("#fiveDayForecast")
 let searchHistoryDisplayed = document.querySelector("#searchHistoryDisplayed")
-let searchHistory = []
+let searchHistoryArr = []
 
+function weatherCurrentCity(city){
+
+}
+
+function weatherFiveDayForecast(city) {
+
+}
+
+function saveSearchHistory() {
+
+}
+
+function searchHistory() {
+
+}
+
+function historyBtn() {
+
+}
+
+function searchCity() {
+    
+}
