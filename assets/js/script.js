@@ -99,5 +99,5 @@ function historyBtn(city) {
 
 function searchCity() {
     weatherCurrentCity(inputSearch.value)
-    weatherFiveDayForecast(inputSearch.value)g
+    weatherFiveDayForecast(inputSearch.value)
 }
