@@ -97,7 +97,7 @@ function historyBtn(city) {
     searchHistoryDisplayed.append(document.createElement("br"))
 }
 
-function searchCity() {
+function retrieveCity() {
     weatherCurrentCity(inputSearch.value)
     weatherFiveDayForecast(inputSearch.value)
 }
