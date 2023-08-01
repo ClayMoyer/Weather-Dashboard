@@ -69,8 +69,12 @@ function weatherFiveDayForecast(city) {
     })
 }
 
-function saveSearchHistory() {
-
+function saveSearchHistory(city) {
+    if(!searchHistoryArr.includes(city)){
+        searchHistoryArr.push(city)
+        historyBtn(city)
+        localStorage.setItem("currentCity", JSON.stringify(searchHistoryArr))
+    }
 }
 
 function searchHistory() {
