@@ -69,12 +69,20 @@ function weatherFiveDayForecast(city) {
     })
 }
 
-function saveSearchHistory() {
-
+function saveSearchHistory(city) {
+    if(!searchHistoryArr.includes(city)){
+        searchHistoryArr.push(city)
+        historyBtn(city)
+        localStorage.setItem("currentCity", JSON.stringify(searchHistoryArr))
+    }
 }
 
 function searchHistory() {
-
+    searchHistoryDisplayed.innerHTML = "<h1>History</h1>"
+    JSON.parse(localStorage.getItem("currentCity")) ? searchHistoryArr = JSON.parse(localStorage.getItem("currentCity")) : searchHistoryArr = []
+    searchHistoryArr.forEach(city => {
+        historyBtn(city)
+    })
 }
 
 function historyBtn() {
